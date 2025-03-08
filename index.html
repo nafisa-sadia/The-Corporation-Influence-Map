@@ -11,49 +11,45 @@
 
     <!-- Header Section -->
     <header>
-        <h1>When Good Messaging Becomes Manipulation</h1>
-        <p>Exploring the influence of corporations on media, policy, and public perception.</p>
+        <h1>The Normalization of Corporate Power</h1>
+        <p>Exploring corporate influence through media, economic control, and political shifts.</p>
     </header>
 
-    <!-- Corporate Influence Map -->
-    <section class="map-container">
-        <h2>Corporate Influence Map</h2>
-        <div class="map">
-            <div class="node corporation" onclick="showDetails('corporation')">Corporations</div>
-            <div class="node media" onclick="showDetails('media')">Media</div>
-            <div class="node government" onclick="showDetails('government')">Government</div>
-            <div class="node public" onclick="showDetails('public')">Public Perception</div>
+    <!-- Filter & Search Bar -->
+    <div class="controls">
+        <input type="text" id="search-bar" placeholder="Search case studies..." onkeyup="searchCaseStudies()">
+        <div class="filters">
+            <button class="filter-button" data-filter="all">Show All</button>
+            <button class="filter-button" data-filter="Normalization of Corporate Power through Media">Media Influence</button>
+            <button class="filter-button" data-filter="Economization of Life">Economization of Life</button>
+            <button class="filter-button" data-filter="Marketization of Democracy">Marketization of Democracy</button>
+            <button class="filter-button" data-filter="Media and Communication">Media & Communication</button>
+            <button class="filter-button" data-filter="Normalisation">Normalization</button>
+            <button class="filter-button" data-filter="Overton Window">Overton Window</button>
+            <button class="filter-button" data-filter="Power Relationships and Censorship">Censorship & Power</button>
         </div>
-        <p id="info-box">Click on a node to see its influence.</p>
-    </section>
+    </div>
 
-    <!-- Overton Window Section -->
-    <section class="overton-container">
-        <h2>Overton Window Shift</h2>
-        <input type="range" id="overton-slider" min="0" max="100" value="50" oninput="updateOvertonWindow(this.value)">
-        <p id="overton-label">Public Perception: Balanced</p>
-    </section>
+    <!-- Case Studies Section -->
+    <div class="case-studies">
+        <div class="case-study" data-phase="Normalization of Corporate Power through Media" data-tags="Media and Communication, Overton Window">
+            <h3>Greenwashing and Media Manipulation</h3>
+            <p>How corporations use media framing to normalize deceptive sustainability claims.</p>
+            <p><strong>Source:</strong> The New Corporation (2020)</p>
+        </div>
 
-    <!-- Timeline Normalization -->
-    <section class="timeline-container">
-        <h2>Timeline: Normalization of Corporate Power</h2>
-        <button onclick="updateTimeline(-1)">◄</button>
-        <span id="timeline-text">1970s: Corporate lobbying begins influencing government policies.</span>
-        <button onclick="updateTimeline(1)">►</button>
-    </section>
+        <div class="case-study" data-phase="Economization of Life" data-tags="Normalisation, Power Relationships and Censorship">
+            <h3>The Gig Economy and Labor Exploitation</h3>
+            <p>Examining how Uber and gig work have reshaped labor laws and employment norms.</p>
+            <p><strong>Source:</strong> Academic Research on Platform Capitalism (2019)</p>
+        </div>
 
-    <!-- Media Manipulation Section -->
-    <section class="media-container">
-        <h2>Media Framing & Influence</h2>
-        <p id="headline">Breaking News: Corporations Lead Sustainability Efforts</p>
-    </section>
-
-    <!-- Power & Censorship Section -->
-    <section class="power-container">
-        <h2>Power Relationships & Censorship</h2>
-        <button onclick="toggleVisibility('hidden-content')">Reveal Censored Information</button>
-        <p id="hidden-content" style="display:none;">Corporate-funded think tanks control public narratives.</p>
-    </section>
+        <div class="case-study" data-phase="Marketization of Democracy" data-tags="Overton Window, Power Relationships and Censorship">
+            <h3>Privatization of Water Services</h3>
+            <p>The shift from public water management to corporate control, and its political impact.</p>
+            <p><strong>Source:</strong> World Bank Reports on Water Privatization (2018)</p>
+        </div>
+    </div>
 
 </body>
 </html>
