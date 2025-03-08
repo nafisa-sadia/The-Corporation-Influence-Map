@@ -1,39 +1,35 @@
-let timelineIndex = 0;
-const timelineData = [
-    "1970s: Corporate lobbying begins influencing government policies.",
-    "1980s: Deregulation leads to corporate expansion in media and healthcare.",
-    "1990s: The rise of PR-driven sustainability efforts (greenwashing).",
-    "2000s: Tech monopolies gain control over digital discourse.",
-    "2010s: Fake news and algorithmic influence shape political decisions.",
-    "2020s: AI-driven corporate policies replace human regulation."
-];
+document.addEventListener("DOMContentLoaded", function() {
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const caseStudies = document.querySelectorAll(".case-study");
 
-function showDetails(type) {
-    const infoBox = document.getElementById("info-box");
-    const details = {
-        "corporation": "Corporations fund political campaigns and influence laws to serve their interests.",
-        "media": "Media outlets, often owned by corporations, frame narratives in ways that benefit their funders.",
-        "government": "Lobbyists shape government policies, often prioritizing corporate interests over public welfare.",
-        "public": "Public perception is influenced by media messaging, framing policies as inevitable or beneficial."
-    };
-    infoBox.innerText = details[type] || "Click on a node to see its influence.";
-}
+    filterButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const filterValue = this.getAttribute("data-filter");
 
-function updateOvertonWindow(value) {
-    const label = document.getElementById("overton-label");
-    if (value < 30) label.innerText = "Public Perception: Corporate-Controlled";
-    else if (value > 70) label.innerText = "Public Perception: Democratic Shift";
-    else label.innerText = "Public Perception: Balanced";
-}
+            caseStudies.forEach(study => {
+                const phase = study.getAttribute("data-phase");
+                const tags = study.getAttribute("data-tags");
 
-function updateTimeline(direction) {
-    timelineIndex += direction;
-    if (timelineIndex < 0) timelineIndex = 0;
-    if (timelineIndex >= timelineData.length) timelineIndex = timelineData.length - 1;
-    document.getElementById("timeline-text").innerText = timelineData[timelineIndex];
-}
+                if (filterValue === "all" || phase.includes(filterValue) || tags.includes(filterValue)) {
+                    study.style.display = "block";
+                } else {
+                    study.style.display = "none";
+                }
+            });
+        });
+    });
+});
 
-function toggleVisibility(id) {
-    const element = document.getElementById(id);
-    element.style.display = element.style.display === "none" ? "block" : "none";
+function searchCaseStudies() {
+    let input = document.getElementById('search-bar').value.toLowerCase();
+    let caseStudies = document.getElementsByClassName('case-study');
+
+    for (let i = 0; i < caseStudies.length; i++) {
+        let title = caseStudies[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        if (title.includes(input)) {
+            caseStudies[i].style.display = "block";
+        } else {
+            caseStudies[i].style.display = "none";
+        }
+    }
 }
