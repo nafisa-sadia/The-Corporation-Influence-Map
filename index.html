@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Influence Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
 
+    <!-- Header Section -->
+    <header>
+        <h1>When Good Messaging Becomes Manipulation</h1>
+        <p>Exploring the influence of corporations on media, policy, and public perception.</p>
+    </header>
+
+    <!-- Corporate Influence Map -->
+    <section class="map-container">
+        <h2>Corporate Influence Map</h2>
+        <div class="map">
+            <div class="node corporation" onclick="showDetails('corporation')">Corporations</div>
+            <div class="node media" onclick="showDetails('media')">Media</div>
+            <div class="node government" onclick="showDetails('government')">Government</div>
+            <div class="node public" onclick="showDetails('public')">Public Perception</div>
+        </div>
+        <p id="info-box">Click on a node to see its influence.</p>
+    </section>
+
+    <!-- Overton Window Section -->
+    <section class="overton-container">
+        <h2>Overton Window Shift</h2>
+        <input type="range" id="overton-slider" min="0" max="100" value="50" oninput="updateOvertonWindow(this.value)">
+        <p id="overton-label">Public Perception: Balanced</p>
+    </section>
+
+    <!-- Timeline Normalization -->
+    <section class="timeline-container">
+        <h2>Timeline: Normalization of Corporate Power</h2>
+        <button onclick="updateTimeline(-1)">◄</button>
+        <span id="timeline-text">1970s: Corporate lobbying begins influencing government policies.</span>
+        <button onclick="updateTimeline(1)">►</button>
+    </section>
+
+    <!-- Media Manipulation Section -->
+    <section class="media-container">
+        <h2>Media Framing & Influence</h2>
+        <p id="headline">Breaking News: Corporations Lead Sustainability Efforts</p>
+    </section>
+
+    <!-- Power & Censorship Section -->
+    <section class="power-container">
+        <h2>Power Relationships & Censorship</h2>
+        <button onclick="toggleVisibility('hidden-content')">Reveal Censored Information</button>
+        <p id="hidden-content" style="display:none;">Corporate-funded think tanks control public narratives.</p>
+    </section>
+
+</body>
+</html>
